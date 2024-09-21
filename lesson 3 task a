@@ -1,0 +1,9 @@
+class Testing {
+  public static void main(String [] args) {
+    // place your code here!
+    System.out.println("Welcome to Sanjay's Koala Party!");
+System.out.print("It's possible Sanjay can distribute " + 12);
+System.out.println(" cookies for each bowl.");
+    // your code ends here!
+  }
+}
