@@ -19,11 +19,11 @@ public class Assignment1 {
         int height;
         int width;
         Scanner sc = new Scanner (System.in);
-                height = sc.nextint();
-                width= sc.nextint();
-                System.out.println("Area is: ");
-        
+        System.out.print("Input the rectangle length");
+        System.out.print("Input the rectangle wigth");
+        length = sc.nextInt();
         
     }
     
 }
+
