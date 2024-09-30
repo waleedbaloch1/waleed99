@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication2;
+
+package javaapplication3;
 import java.lang.Math;
+import java.lang.Integer;
 
 import java.util.Scanner;   
+
+
 
 /**
  *
  * @author 796628
  */
-public class JavaApplication2 {
+public class JavaApplication3 {
 
     /**
      * @param args the command line arguments
@@ -55,4 +59,6 @@ public class JavaApplication2 {
      }
     
 }
+    
+
     
