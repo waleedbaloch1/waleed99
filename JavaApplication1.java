@@ -3,62 +3,68 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package javaapplication3;
+package javaapplication2;
 import java.lang.Math;
-import java.lang.Integer;
 
 import java.util.Scanner;   
-
-
 
 /**
  *
  * @author 796628
  */
-public class JavaApplication3 {
+public class JavaApplication2 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int length;
-        int width;
+           double width; // value of width
+           double length; // value of length
       
         
       
-        Scanner sc = new Scanner (System.in);
-        System.out.println("length is ");
-        width = sc.nextInt();
-        System.out.println(" width is  ");
-        length = sc.nextInt();
+        Scanner sc = new Scanner (System.in); // putting 
+        System.out.println("width is "); // input for width
+        width = sc.nextDouble(); // scans for width
+        System.out.println(" length is  "); // input for length
+        length = sc.nextDouble(); // scans for length
         System.out.println(length*width);
-        System.out.println("that is the area");
-        int radius;
-        int diameter;
+        System.out.println("that is the area"); // stating taht is the area
+        double radius;
+        double diameter;
         System.out.println("radius is: ");
-         radius = sc.nextInt();
+         radius = sc.nextDouble();
          diameter = (radius*radius);
          System.out.println(Math.PI*diameter);
          System.out.println("that is the area of a circle");
-         int radius2;
-         int height;
-          System.out.println("radius is: ");
-          radius2 = sc.nextInt();
+         double radius2;
+         double height;
+          System.out.printf("radius is: ");
+          radius2 = sc.nextDouble();
           System.out.println("height is:");
-          height = sc.nextInt();
-          int diameter2 = (radius*radius);
+          height = sc.nextDouble();
+          double diameter2 = (radius*radius);
           System.out.println("the Volume is ");
           System.out.println(Math.PI*diameter2*height);
-          System.out.println("the surface are is");
-          double OK = (2*Math.PI*radius2*height);
-          double Okay = (2*Math.PI*radius2*diameter2);
-          System.out.print(OK+Okay);
+          System.out.println("the surface area is");
+          double Bye = (2*Math.PI*radius2*height);
+          double Hello = (2*Math.PI*radius2*diameter2);
+          System.out.print(Bye+Hello);
+          double g = 9.8;
+          double L;
+            System.out.println("meters are: ");
+            L = sc.nextDouble();
+           double No = (g*L);
+           double square = (Math.sqrt(No));
+           Double Ta = (Math.PI*2);
+           System.out.println("Time for one pendulum swing");
+           System.out.println(square*Ta);
+          
+          
           
      }
     
 }
-    
 
     
