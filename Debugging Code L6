@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner abc = new Scanner(System.in);
+    String greeting = new String();
+    System.out.print("Hi. Please enter a greeting in one word: ");
+    greeting = abc.next();
+    System.out.printf("You said: %s.\n", greeting);
+    System.out.print("Hi. Please enter a greeting in more than one word: ");
+    greeting = abc.nextLine();
+    System.out.printf("You said: %s.\n", greeting);
+  }
+}
