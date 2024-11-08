@@ -16,6 +16,6 @@ if (temperature <= minTemp) {
 if ((temperature < maxTemp) && (temperature > minTemp)) {
    System.out.println("Porridge just right!");
 }
-        // Yout code stops here!
+        // You code stops here!
     }
 }
