@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class BasicCalculator {
+public class Calc {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.print("Please input two numbers: ");
@@ -32,9 +32,9 @@ public class BasicCalculator {
                 System.out.println("Error: Invalid operator.");
                 return;  
         }
-
         System.out.println(num1 + " " + operator + " " + num2 + " = " + result);
         scan.close();
     
 
+}
 }
