@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class AlphabetizeWords {
+
+    public static void main(String[] args) {
+      
+        Scanner scan = new Scanner(System.in);
+       
+        System.out.print("Please enter the first word: ");
+        String word1 = scan.nextLine();
+        System.out.print("Please enter the second word: ");
+        String word2 = scan.nextLine();
+        System.out.print("Please enter the third word: ");
+        String word3 = scan.nextLine();
+
+        if (word1.compareTo(word2) > 0) {
+            String temp = word1;
+            word1 = word2;
+            word2 = temp;
+        }
+        
+     
+        if (word1.compareTo(word3) > 0) {
+           
+            String temp = word1;
+            word1 = word3;
+            word3 = temp;
+        }
+        
+     
+        if (word2.compareTo(word3) > 0) {
+           
+            String temp = word2;
+            word2 = word3;
+            word3 = temp;
+        }
+
+        System.out.println("The words in alphabetical order are:");
+        System.out.println(word1);
+        System.out.println(word2);
+        System.out.println(word3);
+        
+        scan.close();
+    }
+}
