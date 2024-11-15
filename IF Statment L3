@@ -1,16 +1,13 @@
 import java.util.Scanner;
 
-public class GradeCalculator {
+public class marks {
 
     public static void main(String[] args) {
        
         Scanner scan = new Scanner(System.in);
-
-       
         System.out.print("Please enter a percentage mark: ");
         int marks = scan.nextInt(); 
-
-       
+    
         if (marks >= 0 && marks <= 100) {
            
             if (marks >= 80) {
@@ -28,3 +25,5 @@ public class GradeCalculator {
             
             System.out.println("Invalid percentage! Please enter a value between 0 and 100.");
         }
+    }
+}
