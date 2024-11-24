@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+class GuessingGame {
+    public static void main(String[] args) {
+        Scanner kb = new Scanner(System.in);
+        int correctNumber = 7; // Number to be guessed
+        int guess = 0; // Player's guess
+        boolean correctGuess = false; // Flag to check if the guess is correct
+        
+        while (!correctGuess) {
+            System.out.print("Guess a number between 1 and 10: ");
+            guess = kb.nextInt(); // Get user's guess
+            
+            if (guess == correctNumber) {
+                correctGuess = true; // Correct guess
+                System.out.println("Right answer!");
+            } else {
+                System.out.println("Incorrect.");
+            }
+        }
+    }
+}
