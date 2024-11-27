@@ -4,9 +4,16 @@ public class TableOfValues {
         System.out.printf("%-5s %-10s %-10s %-10s\n", "x", "sqrt(x)", "x^2", "x^3");
 
         for (int x = 0; x <= 10; x++) {
-            double sqrtX = Math.sqrt(x);        
+            double sqrtX = Math.sqrt(x);
+            double xSquard = Math.xsqrt
+            
+ 
 
             System.out.printf("%-5d %-10.2f %-10.2f %-10.2f\n", x, sqrtX, xSquared, xCubed);
         }
+
+
+
+
     }
 }
