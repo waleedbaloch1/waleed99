@@ -1,25 +1,58 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package assignment.pkg2;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author 796628
- */
-public class Assignment2 {
+public class CollatzConjecture {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Scanner sc = new Scanner (System.in);
-        System.out.println ("Please enter an interger");
-        int n = sc nextInt ();
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            System.out.print("Enter a whole number > 0: ");
+            int n = scanner.nextInt();
+            
+            if (n < 1) {
+                System.out.println("Please enter a positive whole number.");
+                continue;
+            }
+
+            ArrayList<Integer> sequence = new ArrayList<>();
+            int highestValue = n;
+            int originalN = n;
+
+            while (n != 1) {
+                sequence.add(n);
+                if (n % 2 == 0) { // n is even
+                    n = n / 2;
+                } else { // n is odd
+                    n = 3 * n + 1;
+                }
+                
+                // Check for the highest value
+                if (n > highestValue) {
+                    highestValue = n;
+                }
+            }
+            sequence.add(1); // Add the final 1 to the sequence
+
+            // Formatting output
+            System.out.print("The Collatz sequence for n = " + originalN + " is: ");
+            for (int i = 0; i < sequence.size(); i++) {
+                System.out.print(sequence.get(i));
+                if (i < sequence.size() - 1) {
+                    System.out.print("; ");
+                }
+            }
+            System.out.println();
+            System.out.println("Number of terms = " + sequence.size());
+            System.out.printf("Highest value reached = %,d%n", highestValue); // Format with commas
+
+            System.out.print("Do another? (y/n) ");
+            char doAnother = scanner.next().toLowerCase().charAt(0);
+            if (doAnother != 'y') {
+                System.out.println("Goodbye!");
+                break;
+            }
+        }
+        scanner.close();
     }
-    
 }
