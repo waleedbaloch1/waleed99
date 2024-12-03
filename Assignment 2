@@ -21,18 +21,17 @@ public class Main {
 
             while (n != 1) {
                 sequence.add(n);
-                if (n % 2 == 0) { // n is even
+                if (n % 2 == 0) { 
                     n = n / 2;
                 } else { // n is odd
                     n = 3 * n + 1;
                 }
                 
-                // Check for the highest value
                 if (n > highestValue) {
                     highestValue = n;
                 }
             }
-            sequence.add(1); // Add the final 1 to the sequence
+            sequence.add(1); 
 
             // Formatting output
             System.out.print("The Collatz sequence for n = " + originalN + " is: ");
@@ -44,7 +43,7 @@ public class Main {
             }
             System.out.println();
             System.out.println("Number of terms = " + sequence.size());
-            System.out.printf("Highest value reached = %,d%n", highestValue); // Format with commas
+            System.out.printf("Highest value reached = %,d%n", highestValue); 
 
             System.out.print("Do another? (y/n) ");
             char doAnother = scanner.next().toLowerCase().charAt(0);
