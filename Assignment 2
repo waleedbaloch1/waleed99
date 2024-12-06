@@ -1,5 +1,5 @@
 package assignment.pkg2;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Assignment2 {
@@ -9,20 +9,23 @@ public class Assignment2 {
         Scanner scanner = new Scanner(System.in);
         
         while (true) {
-            System.out.print("Enter a whole number > 0: ");
+            System.out.print("Enter a whole number > 0: ");// says to enter a whole number
             int n = scanner.nextInt();
-            
+           
             if (n < 1) {
-                System.out.println("Please enter a positive whole number.");
+                System.out.println("Please enter a positive whole number.");//
                 continue;
             }
 
-            ArrayList<Integer> sequence = new ArrayList<>();
+            
             int highestValue = n;
             int originalN = n;
-
+            int numberofterms =0;
+            // The Collatz sequence is
+       
+             System.out.print("The Collatz sequence for n = " + originalN + " is: ");
             while (n != 1) {
-                sequence.add(n);
+                
                 if (n % 2 == 0) { 
                     n = n / 2;
                 } else { // n is odd
@@ -33,27 +36,23 @@ public class Assignment2 {
                     highestValue = n;
                 }
             }
-            sequence.add(1); 
+            
 
             // Formatting output
-            System.out.print("The Collatz sequence for n = " + originalN + " is: ");
-            for (int i = 0; i < sequence.size(); i++) {
-                System.out.print(sequence.get(i));
-                if (i < sequence.size() - 1) {
-                    System.out.print("; ");
-                }
-            }
+           
+            
             System.out.println();
-            System.out.println("Number of terms = " + sequence.size());
+            System.out.println("Number of terms = "+ );
             System.out.printf("Highest value reached = %,d%n", highestValue); 
-
-            System.out.print("Do another? (y/n) ");
+                               
+            System.out.print("Do another? (y/n) ");//shows another do another either pick y or n
             char doAnother = scanner.next().toLowerCase().charAt(0);
             if (doAnother != 'y') {
-                System.out.println("Goodbye!");
+                System.out.println("Goodbye!");// if press n says Goodbye
                 break;
             }
         }
         scanner.close();
     }
 }
+
