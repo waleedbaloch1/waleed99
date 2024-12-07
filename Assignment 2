@@ -8,20 +8,20 @@ public class Assignment2 {
         Scanner scanner = new Scanner(System.in);
         
         while (true) {
-            System.out.print("Enter a whole number > 0: "); // Prompt for a whole number
+            System.out.print("Enter a whole number > 0: "); // enters a whole number
             int n = scanner.nextInt();
            
             if (n < 1) {
-                System.out.println("Please enter a positive whole number."); // Error message for invalid input
+                System.out.println("Please enter a positive whole number."); // enter a positive whole number
                 continue;
             }
 
-            int highestValue = n;
-            int originalN = n;
+            int highestValue = n; // enters the highestValue
+            int originalN = n; // variable n
             int numberOfTerms = 1; // Start with 1 to count the original number
             
             // The Collatz sequence
-            System.out.print("The Collatz sequence for n = " + originalN + " is: " + n);
+            System.out.print("The Collatz sequence for n = " + originalN + " is: " + n); // this is a loop
             while (n != 1) {
                 if (n % 2 == 0) { 
                     n = n / 2;
