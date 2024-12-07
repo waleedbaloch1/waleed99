@@ -4,28 +4,25 @@ import java.util.Scanner;
 
 public class Assignment2 {
 
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
         while (true) {
-            System.out.print("Enter a whole number > 0: ");// says to enter a whole number
+            System.out.print("Enter a whole number > 0: "); // Prompt for a whole number
             int n = scanner.nextInt();
            
             if (n < 1) {
-                System.out.println("Please enter a positive whole number.");//
+                System.out.println("Please enter a positive whole number."); // Error message for invalid input
                 continue;
             }
 
-            
             int highestValue = n;
             int originalN = n;
-            int numberofterms =0;
-            // The Collatz sequence is
-       
-             System.out.print("The Collatz sequence for n = " + originalN + " is: ");
+            int numberOfTerms = 1; // Start with 1 to count the original number
+            
+            // The Collatz sequence
+            System.out.print("The Collatz sequence for n = " + originalN + " is: " + n);
             while (n != 1) {
-                
                 if (n % 2 == 0) { 
                     n = n / 2;
                 } else { // n is odd
@@ -35,20 +32,20 @@ public class Assignment2 {
                 if (n > highestValue) {
                     highestValue = n;
                 }
+                
+                System.out.print(" -> " + n); // Print the current value in the sequence
+                numberOfTerms++; // Increment the number of terms
             }
+            System.out.println(); // Move to the next line after the sequence
             
-
             // Formatting output
-           
-            
-            System.out.println();
-            System.out.println("Number of terms = "+ );
-            System.out.printf("Highest value reached = %,d%n", highestValue); 
+            System.out.println("Number of terms = " + numberOfTerms);// calculates the number of terms
+            System.out.printf("Highest value reached = %,d%n", highestValue);  // calculates the highest value
                                
-            System.out.print("Do another? (y/n) ");//shows another do another either pick y or n
+            System.out.print("Do another? (y/n) "); // Prompt to do another
             char doAnother = scanner.next().toLowerCase().charAt(0);
             if (doAnother != 'y') {
-                System.out.println("Goodbye!");// if press n says Goodbye
+                System.out.println("Goodbye!"); // Exit message
                 break;
             }
         }
