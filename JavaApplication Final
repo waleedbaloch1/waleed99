@@ -1,78 +1,95 @@
-def final_balance(old_bal, purchase, payment):
-    """
-    Calculate the final balance for a customer after a purchase and a payment.
-    
-    Parameters:
-    old_bal (float): The starting balance.
-    purchase (float): The amount of the most recent purchase.
-    payment (float): The amount of the most recent payment.
-    
-    Returns:
-    float: The final balance after the purchase and payment.
-    """
-    / Calculate the new balance by adding the purchase and subtracting the payment
-    new_balance = old_bal + purchase - payment
-    return new_balance
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-def read_ledger(file_name):
-    """
-    Read the ledger file and return a list of customer data.
-    
-    Parameters:
-    file_name (str): The name of the ledger file.
-    
-    Returns:
-    list: A list of tuples containing customer data.
-    """
-    customers = []  /Initialize an empty list to store customer data
-    with open(file_name, 'r') as file:  / Open the ledger file for reading
-        for line in file:  / Iterate through each line in the file
-            parts = line.strip().split(',')  / Split the line into parts by comma
-            account_number = parts[2]  / Extract the account number
-            starting_balance = float(parts[3])  / Convert starting balance to float
-            recent_purchase = float(parts[4])  / Convert recent purchase to float
-            recent_payment = float(parts[5])  / Convert recent payment to float
-            /Append a tuple of customer data to the list
-            customers.append((account_number, starting_balance, recent_purchase, recent_payment))
-    return customers  /Return the list of customer data
+public class CreditCardCalculator {
 
-def main():
-    . Read the ledger data from the specified file
-    customers = read_ledger('ledger.dat')
-    
-    total_balance = 0  / Initialize total balance to zero
-    highest_balance = float('-inf')  / Set initial highest balance to negative infinity
-    lowest_balance = float('inf')  / Set initial lowest balance to positive infinity
-    highest_account = ""  / Initialize variable to store account number with highest balance
-    lowest_account = ""  / Initialize variable to store account number with lowest balance
-    
-    / Process each customer in the list
-    for account_number, starting_balance, recent_purchase, recent_payment in customers:
-        / Calculate the final balance for the current customer
-        final_bal = final_balance(starting_balance, recent_purchase, recent_payment)
-        total_balance += final_bal  / Add the final balance to the total balance
-        
-        / Check for the highest balance
-        if final_bal > highest_balance:
-            highest_balance = final_bal  / Update highest balance
-            highest_account = account_number  / Update account number for highest balance
-        
-        / Check for the lowest balance
-        if final_bal < lowest_balance:
-            lowest_balance = final_bal  / Update lowest balance
-            lowest_account = account_number  / Update account number for lowest balance
-        
-        / Print the account number and final balance for the current customer
-        print(f"Account Number: {account_number}, Final Balance: ${final_bal:.2f}")
-    
-    / Calculate the average balance by dividing total balance by the number of customers
-    average_balance = total_balance / len(customers)
-    
-    / Print the highest and lowest balances along with their account numbers
-    print(f"\nHighest Balance: Account Number: {highest_account}, Balance: ${highest_balance:.2f}")
-    print(f"Lowest Balance: Account Number: {lowest_account}, Balance: ${lowest_balance:.2f}")
-    print(f"Average Balance: ${average_balance:.2f}")
+    // Class to hold customer data
+    static class Customer {
+        String accountNumber; // Account number of the customer
+        double startingBalance; // Starting balance of the customer
+        double recentPurchase; // Most recent purchase amount
+        double recentPayment; // Most recent payment amount
 
-/ Entry point of the program
-if __name__ == "__main__":
-    main()  /Call the main function to execute the program
+        // Constructor to initialize customer data
+        public Customer(String accountNumber, double startingBalance, double recentPurchase, double recentPayment) {
+            this.accountNumber = accountNumber;
+            this.startingBalance = startingBalance;
+            this.recentPurchase = recentPurchase;
+            this.recentPayment = recentPayment;
+        }
+    }
+
+    // Function to calculate the final balance for a customer
+    public static double finalBalance(double oldBal, double purchase, double payment) {
+        // Calculate the new balance by adding the purchase and subtracting the payment
+        return oldBal + purchase - payment;
+    }
+
+    // Function to read the ledger file and return a list of customers
+    public static List<Customer> readLedger(String fileName) throws IOException {
+        List<Customer> customers = new ArrayList<>(); // Initialize a list to store customer data
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) { // Open the file for reading
+            String line;
+            // Read each line from the file
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(","); // Split the line into parts by comma
+                String accountNumber = parts[2]; // Extract the account number
+                double startingBalance = Double.parseDouble(parts[3]); // Convert starting balance to double
+                double recentPurchase = Double.parseDouble(parts[4]); // Convert recent purchase to double
+                double recentPayment = Double.parseDouble(parts[5]); // Convert recent payment to double
+                // Create a new Customer object and add it to the list
+                customers.add(new Customer(accountNumber, startingBalance, recentPurchase, recentPayment));
+            }
+        }
+        return customers; // Return the list of customers
+    }
+
+    public static void main(String[] args) {
+        String fileName = "ledger.dat"; // Input file name containing customer data
+        try {
+            // Read customer data from the ledger file
+            List<Customer> customers = readLedger(fileName);
+            double totalBalance = 0; // Initialize total balance to zero
+            double highestBalance = Double.NEGATIVE_INFINITY; // Set initial highest balance to negative infinity
+            double lowestBalance = Double.POSITIVE_INFINITY; // Set initial lowest balance to positive infinity
+            String highestAccount = ""; // Initialize variable to store account number with highest balance
+            String lowestAccount = ""; // Initialize variable to store account number with lowest balance
+
+            // Process each customer in the list
+            for (Customer customer : customers) {
+                // Calculate the final balance for the current customer
+                double finalBal = finalBalance(customer.startingBalance, customer.recentPurchase, customer.recentPayment);
+                totalBalance += finalBal; // Update total balance
+
+                // Check for the highest balance
+                if (finalBal > highestBalance) {
+                    highestBalance = finalBal; // Update highest balance
+                    highestAccount = customer.accountNumber; // Update account number for highest balance
+                }
+                // Check for the lowest balance
+                if (finalBal < lowestBalance) {
+                    lowestBalance = finalBal; // Update lowest balance
+                    lowestAccount = customer.accountNumber; // Update account number for lowest balance
+                }
+
+                // Print the account number and final balance for the current customer
+                System.out.printf("Account Number: %s, Final Balance: $%.2f%n", customer.accountNumber, finalBal);
+            }
+
+            // Calculate average balance by dividing total balance by the number of customers
+            double averageBalance = totalBalance / customers.size();
+
+            // Print the highest and lowest balances along with their account numbers
+            System.out.printf("%nHighest Balance: Account Number: %s, Balance: $%.2f%n", highestAccount, highestBalance);
+            System.out.printf("Lowest Balance: Account Number: %s, Balance: $%.2f%n", lowestAccount, lowestBalance);
+            System.out.printf("Average Balance: $%.2f%n", averageBalance);
+
+        } catch (IOException e) {
+            // Handle any IO exceptions that occur while reading the file
+            System.err.println("Error reading the ledger file: " + e.getMessage());
+        }
+    }
+}
