@@ -28,7 +28,7 @@ def read_ledger(file_name):
     with open(file_name, 'r') as file:  / Open the ledger file for reading
         for line in file:  / Iterate through each line in the file
             parts = line.strip().split(',')  / Split the line into parts by comma
-            account_number = parts[2]  # Extract the account number
+            account_number = parts[2]  / Extract the account number
             starting_balance = float(parts[3])  / Convert starting balance to float
             recent_purchase = float(parts[4])  / Convert recent purchase to float
             recent_payment = float(parts[5])  / Convert recent payment to float
@@ -46,9 +46,9 @@ def main():
     highest_account = ""  / Initialize variable to store account number with highest balance
     lowest_account = ""  / Initialize variable to store account number with lowest balance
     
-    # Process each customer in the list
+    / Process each customer in the list
     for account_number, starting_balance, recent_purchase, recent_payment in customers:
-        # Calculate the final balance for the current customer
+        / Calculate the final balance for the current customer
         final_bal = final_balance(starting_balance, recent_purchase, recent_payment)
         total_balance += final_bal  / Add the final balance to the total balance
         
@@ -75,4 +75,4 @@ def main():
 
 / Entry point of the program
 if __name__ == "__main__":
-    main()  # Call the main function to execute the program
+    main()  /Call the main function to execute the program
